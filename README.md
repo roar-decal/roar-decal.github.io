@@ -1,1 +1,1 @@
-# Robot Autonomous Racing DeCal Website
+# Robot Autonomous Racing (ROAR) DeCal Website
