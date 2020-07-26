@@ -1,0 +1,109 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.container {
+    max-width: 100%;
+}
+
+.navbar-splash {
+    background-color: #30404D;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    width: 100%;
+    transition: 100ms;
+    z-index: 5;
+}
+
+.section-nav {
+    border-left: 1px solid #eee; 
+    list-style-type: none;
+}
+
+.section-nav ul {
+    list-style-type: none;
+}
+
+.nav-item {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: transparent;
+}
+
+.nav-item:hover {
+    opacity: 0.8;
+}
+
+.item-text {
+    color: white;
+    margin: 0 3px;
+}
+
+.item-text:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.course-title {
+    color: white;
+    font-size: larger;
+    margin: 0 3px;
+    padding-left: 10px;
+}
+
+.course-container {
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+    text-align: justify;
+}
+
+.resource-container {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    text-align: justify;
+}
+
+.resource-link a {
+    /* text-decoration: none; */
+    text-decoration: none;
+    color: #30404D;
+}
+
+.resource-block {
+    margin-bottom: 40px;
+}
+
+.resource-link a:hover {
+    /* text-decoration: none; */
+    color: lightskyblue;
+}
+
+.icon-image {
+    display: block;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 140%;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 25px;
+    line-height: 140%;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 140%;
+}
+
+h4 {
+    font-size: 17px;
+    line-height: 120%;
+}
+
+html{ scroll-behavior:smooth }
