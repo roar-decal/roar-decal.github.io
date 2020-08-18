@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>ROAR Decal | Fall 2020</title>
 
     <link rel="stylesheet" href="./assets/nunito.css">
@@ -89,13 +90,20 @@
                 <div class="col-sm-2">Preview</div>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1" v-model="preview">
                         <label class="form-check-label" for="gridCheck1">
                             show preview
                         </label>
                     </div>
                 </div>
             </div>
+
+            <div class="row" v-if="preview">
+                <div class="col-sm-10 offset-sm-2">
+                    shit
+                </div>
+            </div>
+
             <div class="form-group row">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary" value="submit">Submit Announcement</button>
