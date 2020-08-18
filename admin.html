@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROAR Decal | Fall 2020</title>
+
+    <link rel="stylesheet" href="./assets/nunito.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <!-- Vue.js for form validation     -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./assets/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-splash navbar-expand-md" style="background-color: rgb(45, 61, 138);">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <p class="course-title">ROAR Decal | Fall 2020</p>
+                    </li>
+                </ul>
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    <li class="nav-item dropdown">
+                        <a class="item-text dropdown-toggle" href="#" id="linkDrop" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Links
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="linkDrop">
+                            <a class="dropdown-item" href="https://piazza.com/class/kcy3a3u9fzsuk?cid=6">Piazza</a>
+                            <a class="dropdown-item" href="#">Github Repo</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a id="about" class="item-text" href="./index.html">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="item-text" href="./staff.html">Staff</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="item-text" href="/staff">Course Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="item-text" href="#">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="course-container">
+        <form id="app" @submit="checkForm" action="https://vuejs.org/" method="post">
+            <div class="form-group row">
+                <label for="Title" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Title" placeholder="No Title" v-model="title">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="content" class="col-sm-2 col-form-label">Content</label>
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" id="content" placeholder="The announcement content..."
+                        rows="10" v-model="content"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="author" class="col-sm-2 col-form-label">Author</label>
+                <div class="col-sm-10">
+                    <select class="custom-select" id="author" v-model="author">
+                        <option selected>Choose...</option>
+                        <option value="Star Li">Star Li</option>
+                        <option value="Michael Wu">Michael Wu</option>
+                        <option value="Sunny Sun">Sunny Sun</option>
+                        <option value="Chris Cai">Chris Cai</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">Preview</div>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            show preview
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary" value="submit">Submit Announcement</button>
+                </div>
+            </div>
+
+            <p v-if="errors.length">
+                <b>Please correct the following error(s):</b>
+            <ul>
+                <li v-for="error in errors">{{ error }}</li>
+            </ul>
+            </p>
+        </form>
+    </div>
+</body>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            errors: [],
+            title: null,
+            content: null,
+            author: null,
+            preview: false
+        },
+        methods: {
+            postAnnounce: function () {
+
+                var formData = {
+                    title: this.title,
+                    content: this.content,
+                    author: this.author
+                };
+
+                console.log(formData);
+
+                $.ajax({
+                    url: "http://165.22.129.96:4000/announcement",
+                    data: JSON.stringify(formData),
+                    contentType: "application/json",
+                    processData: false,
+                    type: "POST",
+                    success: function (data) {
+                        alert("successfully created new announcement");
+                        title = null;
+                        content = null;
+                        author = null;
+                    },
+                    error: function (data) {
+                        alert("sorry, the announcement cannot be submitted due to some issue");
+                    }
+                })
+            },
+            checkForm: function (e) {
+
+                this.errors = [];
+
+                if (!this.title) {
+                    this.errors.push('Title required.');
+                }
+                if (!this.content) {
+                    this.errors.push('Content required.');
+                }
+                if (!this.author) {
+                    this.errors.push('Author required.');
+                }
+
+                console.log('a')
+
+                e.preventDefault();
+
+                console.log(this.errors.length)
+                if (!this.errors.length) {
+                    console.log('c')
+                    this.postAnnounce();
+                }
+            }
+        }
+    })
+</script>
+
+</html>
