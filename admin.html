@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
     <title>ROAR Decal | Fall 2020</title>
 
     <link rel="stylesheet" href="./assets/nunito.css">
@@ -142,7 +142,7 @@
                 console.log(formData);
 
                 $.ajax({
-                    url: "http://165.22.129.96:4000/announcement",
+                    url: "https://cors-anywhere.herokuapp.com/http://165.22.129.96:4000/announcement",
                     data: JSON.stringify(formData),
                     contentType: "application/json",
                     processData: false,
