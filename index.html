@@ -505,8 +505,8 @@
             url: "https://cors-anywhere.herokuapp.com/http://165.22.129.96:4000/announcement",
             type: "GET",
             success: function (data) {
-                console.log(data[0]);
-                for (var i = 1; i < 5; i++) {
+                var l = data.length + 1;
+                for (var i = 1; i < l; i++) {
                     var content = `#content-${i}`;
                     var title = `#title-${i}`;
                     var date = `#date-${i}`;
@@ -517,7 +517,7 @@
                 }
             },
             error: function (data) {
-                alert("sorry, the announcement cannot be submitted due to some issue");
+                alert("sorry, the announcement cannot be loaded, pls report to the instructors if you can");
             }
         })
     })
