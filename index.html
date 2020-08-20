@@ -481,7 +481,7 @@
     var mySwiper = new Swiper('.swiper-container', {
         // Optional parameters
         direction: 'horizontal',
-        loop: true,
+        loop: false,
 
         // If we need pagination
         pagination: {
@@ -502,7 +502,7 @@
 
     $(document).ready(function () {
         $.ajax({
-            url: "http://165.22.129.96:4000/announcement",
+            url: "https://cors-anywhere.herokuapp.com/http://165.22.129.96:4000/announcement",
             type: "GET",
             success: function (data) {
                 console.log(data[0]);
