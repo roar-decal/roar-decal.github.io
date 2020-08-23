@@ -39,7 +39,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="linkDrop">
                             <a class="dropdown-item" href="https://piazza.com/class/kcy3a3u9fzsuk?cid=6">Piazza</a>
-                            <a class="dropdown-item" href="#">Github Repo</a>
+                            <a class="dropdown-item" href="https://augcog.github.io/ROAR-DeCal/">Github Repo</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -143,7 +143,11 @@
             title: null,
             content: null,
             author: null,
-            preview: false
+            preview: false,
+            keypass: null
+        },
+        created: function() {
+            this.keypass = prompt("Please provide the admin keypass", "xxxxxx");
         },
         methods: {
             postAnnounce: function () {
@@ -151,7 +155,8 @@
                 var formData = {
                     title: this.title,
                     content: this.content,
-                    author: this.author
+                    author: this.author,
+                    keypass: this.keypass
                 };
 
                 console.log(formData);
@@ -170,7 +175,12 @@
                         obj.author = null;
                     },
                     error: function (data) {
-                        alert("sorry, the announcement cannot be submitted due to some issue");
+                        if (data.status == 401) {
+                            alert("wrong keypass is given, you might want to input again!");
+                            obj.keypass = prompt("Please provide the admin keypass", "xxxxxx");
+                        } else {
+                            alert("sorry, the announcement cannot be submitted due to some issue");
+                        }
                     }
                 })
             },

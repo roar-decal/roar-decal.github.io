@@ -12,8 +12,11 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
+    <!-- <link rel="stylesheet" href="./assets/swiper.min.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./assets/main.css">
+    <!-- <script src="./scripts/swiper.min.js"></script> -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -30,12 +33,13 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     <li class="nav-item dropdown">
-                        <a class="item-text dropdown-toggle" href="#" id="linkDrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="item-text dropdown-toggle" href="#" id="linkDrop" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             Links
                         </a>
                         <div class="dropdown-menu" aria-labelledby="linkDrop">
                             <a class="dropdown-item" href="https://piazza.com/class/kcy3a3u9fzsuk?cid=6">Piazza</a>
-                            <a class="dropdown-item" href="#">Github Repo</a>
+                            <a class="dropdown-item" href="https://augcog.github.io/ROAR-DeCal/">Github Repo</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -44,9 +48,9 @@
                     <li class="nav-item">
                         <a class="item-text" href="./staff.html">Staff</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="item-text" href="/staff">Course Info</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="item-text" href="./resources.html">Resources</a>
                     </li>
@@ -66,28 +70,55 @@
                 <h3>Mode of Instruction: Pre-recorded lectures with remote office hours</h3>
             </div>
             <div class="col-md-4">
-                <img class="icon-image" alt="BARC car"
-                    src="./assets/icon.png" style="width: 70%;">
+                <img class="icon-image" alt="BARC car" src="./assets/icon.png" style="width: 70%;">
             </div>
         </div>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <h4 class="alert-heading">Announcement:</h4>
-            <p>Students who<strong> HAS NOT </strong>filled up their interest forms, please immediately complete this
-                <a href="https://forms.gle/J89Cmn4Cbvh9rUjE9">google form</a> by Friday, September 4.</p>
-            <hr>
-            <p>Students <strong> MUST MAKE SURE </strong>they can install & run CARLA please see
-                <a href="https://docs.google.com/document/d/11txFOaKaJhATWWnmxM13kZqcZrmqfSEZ0KfD18f32Vw/edit?usp=sharing">minimum hardware requirement</a> and
-                <a href = "https://augcog.github.io/ROAR-DeCal/getting_started/quick_start/#mac">CARLA installation guide</a>.</p>
 
-            <!--
-            <p class="mb-0">
-                Congrats to <strong>Michael Wu</strong> for winning the Turing Award this year!
-            </p>
-            -->
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <h2 class="alert-heading" id="title-1"></h2>
+                        <div id="content-1"></div>
+                        <p align="right"><i id="date-1"></i></p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <h2 class="alert-heading" id="title-2"></h2>
+                        <div id="content-2"></div>
+                        <p align="right"><i id="date-2"></i></p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <h2 class="alert-heading" id="title-3"></h2>
+                        <div id="content-3"></div>
+                        <p align="right"><i id="date-3"></i></p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        <h2 class="alert-heading" id="title-4"></h2>
+                        <div id="content-4"></div>
+                        <p align="right"><i id="date-4"></i></p>
+                    </div>
+                </div>
+                ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
         </div>
+
         <hr>
         <div>
 
@@ -109,7 +140,7 @@
                             <th class="col-xs center fit" style="width:13%">
                                 <b>Date</b>
                             </th>
-                            <th class="col-lg-4" style="width:27%" >
+                            <th class="col-lg-4" style="width:27%">
                                 <b>Lecture Topic</b>
                             </th>
                             <th class="col-lg-2" style="width:15%">
@@ -133,7 +164,12 @@
                             <td class="center align-middle" style="height: 90px;" rowspan="4">1</td>
                             <td class="center" style="height: 90px;">09/07 - 09/12</td>
                             <td style="height: 90px;">Introduction: Autonomous Driving and RC Car System </td>
+<<<<<<< HEAD
                             <td class="fit" style="height: 90px;"><a href="https://forms.gle/gSFJ1y2B7E1kaRq17')">Safety</a></td>
+=======
+                            <td class="fit" style="height: 90px;"><a
+                                    href="javascript:alert('not released yet')">Safety</a></td>
+>>>>>>> 89f1597d3653af7dc4f0a685a6085db28a14a16e
                             <td>
                                 <ul>
                                     <li>
@@ -153,8 +189,8 @@
                             <td class="center" style="height: 90px;">09/14 - 09/18</td>
                             <td style="height: 90px;">Arduino </td>
                             <td class="fit" style="..."><a href="javascript:alert('not released yet')">
-                                Circuit simulator
-                            </a></td>
+                                    Circuit simulator
+                                </a></td>
                             <td>
                                 <ul>
                                     <li>
@@ -164,15 +200,15 @@
                             </td>
                         </tr>
                     </tbody>
-                    
+
                     <tbody id="wk3">
                         <tr style="height: 90px;">
                             <td class="center align-middle" style="height: 90px;" rowspan="4">3</td>
                             <td class="center" style="height: 90px;">09/21 - 09/25</td>
                             <td style="height: 90px;">Jetson Nano and OpenCV</td>
                             <td class="fit" style="text-align:left"><a href="javascript:alert('not released yet')">
-                                AruCo marker detection
-                            </a></td>
+                                    AruCo marker detection
+                                </a></td>
                             <td>
                                 <ul>
                                     <li>
@@ -192,8 +228,8 @@
                             <td class="center" style="height: 90px;">09/28 - 10/02</td>
                             <td style="height: 90px;">Computer Vision: Localization </td>
                             <td class="fit" style="text-align:left"><a href="javascript:alert('not released yet')">
-                                AruCo marker location
-                            </a></td>
+                                    AruCo marker location
+                                </a></td>
                             <td>
                                 <ul>
                                     <li>
@@ -208,7 +244,7 @@
                     </tbody>
 
                     <!-- IMPORTANT! THE INSTRUCTIONS ARE BELOW -->
-                    
+
                     <tbody id="wk5">
                         <tr style="...">
                             <!-- put the week number here -->
@@ -220,8 +256,8 @@
 
                             <!-- put the homework title here (try to abbreviate it, don't directly copy & paste) -->
                             <td class="fit" style="text-align:left"><a href="javascript:alert('not released yet')">
-                                None
-                            </a></td>
+                                    None
+                                </a></td>
 
                             <!-- put the activities in the google doc here -->
                             <td>
@@ -248,8 +284,8 @@
 
                             <!-- put the homework title here (try to abbreviate it, don't directly copy & paste) -->
                             <td class="fit" style="text-align:left"><a href="javascript:alert('not released yet')">
-                                Roll a ball
-                            </a></td>
+                                    Roll a ball
+                                </a></td>
 
                             <!-- put the activities in the google doc here -->
                             <td>
@@ -278,8 +314,8 @@
 
                             <!-- put the homework title here (try to abbreviate it, don't directly copy & paste) -->
                             <td class="fit" style="text-align:left"><a href="javascript:alert('not released yet')">
-                                Make your own 3D name tag
-                            </a></td>
+                                    Make your own 3D name tag
+                                </a></td>
 
                             <!-- put the activities in the google doc here -->
                             <td>
@@ -308,8 +344,8 @@
 
                             <!-- put the homework title here (try to abbreviate it, don't directly copy & paste) -->
                             <td class="fit" style="text-align:left"><a href="javascript:alert('not released yet')">
-                                Brainstorm a new Operator & Prep for lab
-                            </a></td>
+                                    Brainstorm a new Operator & Prep for lab
+                                </a></td>
 
                             <!-- put the activities in the google doc here -->
                             <td>
@@ -335,14 +371,15 @@
 
                             <!-- put the homework title here (try to abbreviate it, don't directly copy & paste) -->
                             <td class="fit" style="text-align:left"><a href="javascript:alert('not released yet')">
-                                Optimize PID control
-                            </a></td>
+                                    Optimize PID control
+                                </a></td>
 
                             <!-- put the activities in the google doc here -->
                             <td>
                                 <ul>
                                     <li>
-                                        Write a PID control algorithm for waypoint navigation based on real-time localization
+                                        Write a PID control algorithm for waypoint navigation based on real-time
+                                        localization
                                     </li>
                                     <!-- this can be furthered down by creating more <li> components -->
                                 </ul>
@@ -364,8 +401,8 @@
 
                             <!-- put the homework title here (try to abbreviate it, don't directly copy & paste) -->
                             <td class="fit" style="text-align:left"><a href="javascript:alert('not released yet')">
-                                Identify and implement L2 Planning
-                            </a></td>
+                                    Identify and implement L2 Planning
+                                </a></td>
 
                             <!-- put the activities in the google doc here -->
                             <td>
@@ -391,14 +428,14 @@
 
                             <!-- put the homework title here (try to abbreviate it, don't directly copy & paste) -->
                             <td class="fit" style="text-align:left"><a href="javascript:alert('not released yet')">
-                                Identify and implement L2 Planning
-                            </a></td>
+                                    Identify and implement L2 Planning
+                                </a></td>
 
                             <!-- put the activities in the google doc here -->
                             <td>
                                 <ul>
                                     <li>
-                                        Modify and improve  hardware and software design.
+                                        Modify and improve hardware and software design.
                                     </li>
                                     <!-- this can be furthered down by creating more <li> components -->
                                 </ul>
@@ -417,10 +454,14 @@
             <a class="anchor" id="calendar"></a>
 
             <h1>Calendar</h1>
-            <iframe src="https://calendar.google.com/calendar/embed?src=roar.decal%40gmail.com&ctz=America%2FLos_Angeles" style="border: 0; width: 100%; height: 900px;" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            <iframe
+                src="https://calendar.google.com/calendar/embed?src=roar.decal%40gmail.com&ctz=America%2FLos_Angeles"
+                style="border: 0; width: 100%; height: 900px;" width="800" height="600" frameborder="0"
+                scrolling="no"></iframe>
         </div>
 
-        <br><hr>
+        <br>
+        <hr>
 
         <div class="row d-flex align-items-center">
 
@@ -439,4 +480,51 @@
         </div>
     </div>
 </body>
+
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: false,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    });
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "https://cors-anywhere.herokuapp.com/http://165.22.129.96:4000/announcement",
+            type: "GET",
+            success: function (data) {
+                var l = data.length + 1;
+                for (var i = 1; i < l; i++) {
+                    var content = `#content-${i}`;
+                    var title = `#title-${i}`;
+                    var date = `#date-${i}`;
+
+                    $(content).html(data[i - 1].content);
+                    $(title).html(data[i - 1].title);
+                    $(date).html(data[i - 1].updateDate);
+                }
+            },
+            error: function (data) {
+                alert("sorry, the announcement cannot be loaded, pls report to the instructors if you can");
+            }
+        })
+    })
+</script>
+
 </html>
