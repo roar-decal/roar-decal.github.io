@@ -82,8 +82,12 @@
                 <div class="swiper-slide">
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <h2 class="alert-heading" id="title-1"></h2>
-                        <div id="content-1"></div>
-                        <p align="right"><i id="date-1"></i></p>
+                        <div id="content-1">
+                            The virtual info session video is out <a href="https://drive.google.com/file/d/1CMpEnduaTrR7yQAmDAPcja47arn03F88/view?usp=sharing">here</a>
+                            <br>
+                            the ROAR-sim installation video is available at <a href="https://drive.google.com/file/d/1CmZ1c-DMPkWJfXc8-vYUuvMkPMT17SfP/view?usp=sharing">here</a>
+                        </div>
+                        <p align="right"><i id="date-1">8/25/2021</i></p>
                     </div>
                 </div>
                 <div class="swiper-slide">
@@ -164,7 +168,14 @@
                         <tr style="height: 90px;">
                             <td class="center align-middle" style="height: 90px;" rowspan="4">0</td>
                             <td class="center" style="height: 90px;">08/25 - 09/04</td>
-                            <td style="height: 90px;">(Open) ROAR DeCal Virtual Info Session</td>
+                            <td style="height: 90px;">
+                                <a href="https://drive.google.com/file/d/1CMpEnduaTrR7yQAmDAPcja47arn03F88/view?usp=sharing">
+                                    (Open) ROAR DeCal Virtual Info Session
+                                </a><hr>
+                                <a href="https://drive.google.com/file/d/1CmZ1c-DMPkWJfXc8-vYUuvMkPMT17SfP/view?usp=sharing">
+                                    (Open) ROAR Simulator Installation Guide
+                                </a>
+                            </td>
                             <td class="fit" style="height: 90px;">N/A</td>
                             <td>
                                 <ul>
@@ -536,13 +547,13 @@
                 }
             },
             error: function (data) {
-                for (var i = 1; i < 5; i++) {
-                    var content = `#content-${i}`;
-                    var title = `#title-${i}`;
-                    var date = `#date-${i}`;
+                // for (var i = 1; i < 5; i++) {
+                //     var content = `#content-${i}`;
+                //     var title = `#title-${i}`;
+                //     var date = `#date-${i}`;
 
-                    $(content).html("no announcement yet, future announcements will be shown here and on Piazza");
-                }
+                //     $(content).html("no announcement yet, future announcements will be shown here and on Piazza");
+                // }
                 // alert("sorry, the announcement cannot be loaded, pls report to the instructors if you can");
             }
         })
