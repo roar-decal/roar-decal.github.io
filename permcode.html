@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROAR Decal | Fall 2021</title>
+
+    <link rel="stylesheet" href="./assets/nunito.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./assets/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-splash navbar-expand-md" style="background-color: rgb(45, 61, 138);">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <p class="course-title">ROAR Decal | Fall 2021</p>
+                    </li>
+                </ul>
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    <li class="nav-item dropdown">
+                        <a class="item-text dropdown-toggle" href="#" id="linkDrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Links
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="linkDrop">
+                            <a class="dropdown-item" href="https://piazza.com/class/kcy3a3u9fzsuk?cid=6">Piazza</a>
+                            <a class="dropdown-item" href="https://augcog.github.io/ROAR-DeCal/">Github Repo</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a id="about" class="item-text" href="./index.html">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="item-text" href="#">Staff</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="item-text" href="./resources.html">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="course-container">
+        <div class="form-group">
+            <label for="form1">Your email</label>
+            <input type="email" class="form-control" id="yourEmail" placeholder="xyz@berkeley.com">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" id="permButton">Get permission code</button>
+    </div>
+</body>
+
+<script>
+    var csvData = null;
+    const prepCsv = (rawData) => {
+        var allTextLines = rawData.split(/\r\n|\n/);
+        var lines = {};
+
+        for (var i = 0; i < allTextLines.length; i++) {
+            var data = allTextLines[i].split(',');
+
+            lines[data[1]] = data[0]
+        }
+        csvData = lines;
+    };
+
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",
+            url: "https://gist.githubusercontent.com/listar2000/dce8e94d2f2c3b1c161e4a2ec11e6473/raw/4b53abbb846dfea6531e1341157512d77df7d8f4/perm.csv",
+            dataType: "text",
+            success: function(data) { 
+                prepCsv(data);
+            },
+        });
+
+        $("#permButton").click(() => {
+            var email = $("#yourEmail").val();
+            
+            if (csvData[email]) {
+                alert("your permission code is: " + csvData[email]);
+            } else {
+                alert("invalid email, please contact instructor if needed");
+            }
+        });
+    });
+</script>
